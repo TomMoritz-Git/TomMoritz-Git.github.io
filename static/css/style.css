@@ -1,0 +1,549 @@
+:root {
+  --main-bg-color: #1e2124;
+  --sec-bg-color: #0e1114;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--main-bg-color);
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  overflow-x: hidden;
+  min-width: 300px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.footer {
+  height: 50px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 15px 0;
+  z-index: 10;
+  background: var(--main-bg-color);
+  min-width: 300px;
+  overflow-x: hidden;
+}
+
+.header .menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid #fff;
+  padding: 10px 12px;
+  cursor: pointer;
+  background: var(--main-bg-color);
+}
+
+.btn:hover {
+  background: #fff;
+  color: var(--main-bg-color);
+}
+
+.header .name {
+  font-size: 1.5rem;
+}
+
+.header .externals {
+  display: flex;
+  align-items: center;
+}
+
+.header .socials {
+  margin-right: 10px;
+}
+
+.header .contact span:last-child {
+  display: none;
+}
+
+.experience-sec {
+  margin-top: 71px;
+}
+
+.experience-sec h2 {
+  margin-top: 50px;
+}
+
+section {
+  margin-top: 80px;
+  border-top: 1px solid #2e3134;
+}
+
+section .section-wrapper {
+  border-left: 1px solid #2e3134;
+  width: 100%;
+  max-width: 1175px;
+  margin: 0 auto;
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+
+section h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 1.5em;
+  margin-top: 70px;
+/*   opacity: 0.5; */
+}
+
+.card {
+  width: 100%;
+  min-height: 500px;
+  height: 570px;
+  position: relative;
+  margin: 10px 0 55px 0;
+  /*display: grid;*/
+  /*grid-template-columns: 3fr 2fr;*/
+  position: relative;
+}
+
+.card-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.card[exp-date]::before,
+.educ-item[exp-date]::before {
+  position: absolute;
+  top: 0;
+  content: attr(exp-date);
+  transform: translateY(-100%);
+  margin-top: -5px;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.card .left {
+  background-size: cover ! important;
+  background-position: center !important;
+  padding: 50px 50px;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.card .left h3 {
+  margin-top: 0;
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  background: var(--sec-bg-color);
+  padding: 8px 13px;
+  margin-bottom: 0;
+}
+
+.card .left .company {
+  margin-top: 0;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  background: var(--sec-bg-color);
+  padding: 0px 12px 10px 13px;
+}
+
+.card .left .company .country-codes {
+  font-size: 0.6rem;
+  vertical-align: baseline;
+  margin-left: 8px;
+}
+
+.card .right {
+  background: var(--sec-bg-color);
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 50px 50px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  opacity: 0;
+  color: transparent;
+  transform: translateX(100%);
+  filter: blur(3px);
+  background: #000;
+  transition: all ease 0.25s, opacity ease 0.4s;
+}
+
+.experience-sec .card.show .left {
+  /*width: 50%;*/
+}
+
+.experience-sec .card.show .right {
+  transform: translateX(0);
+  opacity: 1;
+  color: #fff;
+  transition: transform ease 0.25s 0.2s, opacity ease 0.25s 0.2s, background ease 0.5s 0.2s, color ease 0.9s 0.2s;
+  filter: blur(0px);
+  background: var(--sec-bg-color);
+}
+
+.experience-sec .card.show .right .sep {
+  background: #2e3134;
+  transition: background ease 0.9s 0.2s;
+}
+
+.card .right ul {
+  padding-left: 20px;
+}
+
+.card .right ul li {
+  list-style-type: disc;
+  margin-bottom: 1em;
+  font-size: 1rem;
+  line-height: 1.4em;
+}
+
+.card .right ul li:last-child {
+  margin-bottom: 0;
+}
+
+.card .right h4 {
+  margin: 0;
+/*   font-size: 0.9rem; */
+}
+
+.card .right p {
+  margin: 0.75em 0 1em 0;
+  font-size: 1rem;
+  line-height: 1.4em;
+}
+
+.card .right .sep {
+  height: 0.01em;
+  background: var(--main-bg-color);
+  background: transparent;
+  margin-bottom: 1.75em;
+  margin-top: 1.75em;
+}
+
+.link {
+  text-decoration: underline;
+}
+
+.alphabeez .left {
+  background: url('../img/bees.jpg');
+}
+
+.amazon .left {
+  background: url('../img/amazon.jpg');
+}
+
+.proleads .left {
+  background: url('../img/books.jpg');
+}
+
+.educ-item {
+  width: 100%;
+  background: var(--sec-bg-color);
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.educ-item .body {
+  padding: 55px;
+  box-sizing: border-box;
+}
+
+.educ-item h3 {
+  margin: 0.5em 0 1em 0;
+}
+
+.educ-item .btn {
+  display: inline-block;
+  margin: 8px 5px;
+}
+
+.certificates .body {
+  /*padding: 39px 45px;*/
+}
+
+.certificates .btn {
+  display: block;
+  margin: 0 0 16px 0;
+  border: none;
+  padding: 15px 18px;
+  transition: all 0.05s;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  grid-column-gap: 18px;
+}
+
+.certificates .btn .icon {
+  margin-top: -1px;
+  align-self: center;
+}
+
+.certificates .btn .icon img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.certificates .btn .icon img:first-child {
+  display: none;
+}
+
+.certificates .btn:last-child {
+  margin-bottom: 0;
+}
+
+.certificates .btn:hover {
+  background: #0056D2;
+  color: #fff;
+}
+
+.certificates .btn:hover .icon img:first-child {
+  display: inline;
+}
+
+.certificates .btn:hover .icon img:last-child {
+  display: none;
+}
+
+
+
+.project-sec .project {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: inline-block;
+  margin-top: 35px;
+  margin-right: 30px;
+}
+
+.project-sec {
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-sec .projects {
+  margin-top: -35px;
+}
+
+.project-sec .project .img {
+  background-size: cover ! important;
+  background-position: center !important;
+  width: 100%;
+  height: 100%;
+  transition: all ease 0.3s;
+  backface-visibility: hidden;
+}
+
+.project-sec .flower .img {
+  background: url('../img/leaves.jpg');
+}
+
+.project-sec .jupylabel .img {
+  background: url('../img/cat.jpg');
+}
+
+.project-sec .booktitlegen .img {
+  background: url('../img/book.jpg');
+}
+
+.project-sec .jobzsc .img {
+  background: url('../img/business.jpg');
+}
+
+.project .ext-link {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: var(--main-bg-color);
+  border: 1px solid #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transform: translate(25%, 25%);
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+.project .ext-link:hover {
+  background: #fff;
+  color: var(--sec-bg-color);
+}
+
+.project-sec .project .ext-link:hover + .img {
+  transform: scale(0.98);
+}
+
+.project h3 span {
+  font-size: 0.9rem;
+  font-weight: normal;
+  display: block;
+  margin-top: 0.4em;
+}
+
+.project-sec h2 {
+  margin-bottom: 1.2em;
+}
+
+
+@media (max-width: 1165px) {
+
+  section .section-wrapper {
+    border-left: none;
+    padding: 0;
+  }
+
+}
+
+@media (max-width: 970px) {
+
+
+  .header .contact span:first-child {
+    display: none;
+  }
+
+  .header .contact span:last-child {
+    display: inline;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .card .left,
+  .card .right {
+    position: static;
+  }
+
+  .experience-sec .card .right {
+    width: 100%;
+  }
+
+  .experience-sec .card .right {
+    transform: translateX(0);
+    opacity: 1;
+    color: #fff;
+    transition: transform ease 0.25s 0.2s, opacity ease 0.25s 0.2s, background ease 0.5s 0.2s, color ease 0.9s 0.2s;
+    filter: blur(0px);
+    background: var(--sec-bg-color);
+  }
+
+  .experience-sec .card .right .sep {
+    background: #2e3134;
+    transition: background ease 0.9s 0.2s;
+  }
+
+  .card .left h3 {
+    font-size: 1.5rem;
+  }
+
+  .card .left .company {
+    font-size: 1.15rem;
+  }
+
+  section .section-wrapper {
+    border: none;
+  }
+
+
+}
+
+@media (max-width: 700px) {
+
+  .card .left,
+  .card .right,
+  .educ-item .body {
+    padding: 30px;
+  }
+
+  section h2 {
+    margin-bottom: 1em;
+    margin-top: 1em;
+  }
+
+  section {
+    margin-top: 60px;
+  }
+
+  .project-sec h2 {
+    margin-bottom: 0.9em;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+
+  .certificates .btn {
+    grid-template-columns: 1fr;
+    grid-row-gap: 12px;
+  }
+
+  .certificates .btn .icon {
+    padding: 12px;
+  }
+
+  .project-sec .project {
+    aspect-ratio: 1;
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+
+  .project-sec .projects {
+    display: grid;
+    grid-row-gap: 20px;
+    margin-top: 0;
+  }
+
+  .project h3 {
+    margin-bottom: 0;
+    padding-right: 65px;
+  }
+
+  .project .ext-link {
+    transform: none;
+  }
+
+}
+
+
+@page {
+  size: A4;
+}
