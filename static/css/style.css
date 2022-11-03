@@ -516,7 +516,12 @@ section h2 {
   }
 
   .certificates .btn .icon {
-    padding: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .certificates .btn .icon img {
+    max-width: 100px;
   }
 
   .project-sec .project {
@@ -528,7 +533,7 @@ section h2 {
 
   .project-sec .projects {
     display: grid;
-    grid-row-gap: 20px;
+    grid-row-gap: 40px;
     margin-top: 0;
   }
 
@@ -539,11 +544,7 @@ section h2 {
 
   .project .ext-link {
     transform: none;
+    bottom: 2px;
   }
 
-}
-
-
-@page {
-  size: A4;
 }
