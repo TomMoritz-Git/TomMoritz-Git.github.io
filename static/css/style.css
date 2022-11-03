@@ -35,10 +35,6 @@ ul, li {
   box-sizing: border-box;
 }
 
-.footer {
-  height: 50px;
-}
-
 .header {
   position: fixed;
   top: 0;
@@ -419,6 +415,20 @@ section h2 {
 
 .project-sec h2 {
   margin-bottom: 1.2em;
+}
+
+.footer {
+  padding: 25px 0;
+}
+
+.footer-sec {
+  margin-top: 60px;
+}
+
+.footer .rights {
+  opacity: 0.66;
+  font-weight: 300;
+  font-size: 0.9rem;
 }
 
 
