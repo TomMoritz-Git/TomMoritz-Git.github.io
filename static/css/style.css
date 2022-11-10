@@ -153,7 +153,7 @@ section h2 {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 50%;
 }
 
 .card .left h3 {
@@ -192,30 +192,7 @@ section h2 {
   right: 0;
   bottom: 0;
   width: 50%;
-  opacity: 0;
-  color: transparent;
-  transform: translateX(100%);
-  filter: blur(3px);
-  background: #000;
-  transition: all ease 0.25s, opacity ease 0.4s;
-}
-
-.experience-sec .card.show .left {
-  /*width: 50%;*/
-}
-
-.experience-sec .card.show .right {
-  transform: translateX(0);
-  opacity: 1;
-  color: #fff;
-  transition: transform ease 0.25s 0.2s, opacity ease 0.25s 0.2s, background ease 0.5s 0.2s, color ease 0.9s 0.2s;
-  filter: blur(0px);
   background: var(--sec-bg-color);
-}
-
-.experience-sec .card.show .right .sep {
-  background: #2e3134;
-  transition: background ease 0.9s 0.2s;
 }
 
 .card .right ul {
@@ -247,9 +224,9 @@ section h2 {
 .card .right .sep {
   height: 0.01em;
   background: var(--main-bg-color);
-  background: transparent;
   margin-bottom: 1.75em;
   margin-top: 1.75em;
+  background: #2e3134;
 }
 
 .link {
@@ -257,7 +234,7 @@ section h2 {
 }
 
 .alphabeez .left {
-  background: url('../img/bees.jpg');
+  background: url('../img/alphabeez.jpg');
 }
 
 .amazon .left {
@@ -265,7 +242,7 @@ section h2 {
 }
 
 .proleads .left {
-  background: url('../img/books.jpg');
+  background: url('../img/proleads.jpg');
 }
 
 .educ-item {
@@ -335,8 +312,6 @@ section h2 {
   display: none;
 }
 
-
-
 .project-sec .project {
   width: 300px;
   height: 300px;
@@ -400,10 +375,6 @@ section h2 {
 .project .ext-link:hover {
   background: #fff;
   color: var(--sec-bg-color);
-}
-
-.project-sec .project .ext-link:hover + .img {
-  transform: scale(0.98);
 }
 
 .project h3 span {
