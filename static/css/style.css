@@ -433,6 +433,7 @@ section h2 {
   .card .left,
   .card .right {
     position: static;
+    width: 100%;
   }
 
   .experience-sec .card .right {
