@@ -1,0 +1,26 @@
+---
+import { site, links } from '../config';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container bar">
+    <span>© {year} {site.name}</span>
+    <div class="social">
+      {
+        links.map((l) => {
+          const external = l.href.startsWith('http');
+          return (
+            <a
+              href={l.href}
+              target={external ? '_blank' : undefined}
+              rel={external ? 'noopener noreferrer' : undefined}
+            >
+              {l.label}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</footer>

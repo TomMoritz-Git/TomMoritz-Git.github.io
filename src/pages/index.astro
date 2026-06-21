@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Illustration from '../components/Illustration.astro';
+import GitHubMark from '../components/GitHubMark.astro';
+import { site } from '../config';
+import { formatDate } from '../utils';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const latest = posts[0];
+---
+
+<BaseLayout>
+  <section class="container hero hero--home">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>{site.greeting}</h1>
+        <p class="intro">{site.intro}</p>
+        <div class="cta-row">
+          {
+            latest && (
+              <a class="btn btn-primary" href={`/blog/${latest.slug}`}>
+                Read the latest post
+              </a>
+            )
+          }
+          <a class="btn btn-ghost" href={site.cvPath} download>Download CV</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <Illustration variant="hero" />
+      </div>
+    </div>
+  </section>
+
+  <section id="writing" class="container" style="margin-top: 2.5rem; scroll-margin-top: 1.5rem">
+    <p class="section-label">Writing</p>
+    {
+      posts.length === 0 ? (
+        <p style="color: var(--ink-soft)">
+          No posts yet — your first one is coming soon.
+        </p>
+      ) : (
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li class="post-item">
+              <a class="post-title" href={`/blog/${post.slug}`}>
+                {post.data.title}
+              </a>
+              <p class="post-desc">{post.data.description}</p>
+              <div class="post-meta">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+                {post.data.github && (
+                  <a
+                    class="repo-link"
+                    href={post.data.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View the GitHub project for this post"
+                  >
+                    <GitHubMark size={14} />
+                    GitHub
+                  </a>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Illustration, { variantFor } from '../components/Illustration.astro';
+import GitHubMark from '../components/GitHubMark.astro';
+import { formatDate } from '../utils';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate, github } = post.data;
+const banner = variantFor(post.slug);
+---
+
+<BaseLayout title={title} description={description}>
+  <article>
+    <div class="container">
+      <header class="article-header">
+        <div class="post-meta">
+          <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        </div>
+        <h1>{title}</h1>
+        {
+          updatedDate && (
+            <p class="post-meta">Updated {formatDate(updatedDate)}</p>
+          )
+        }
+        {
+          github && (
+            <p class="article-actions">
+              <a class="btn btn-ghost btn-icon" href={github} target="_blank" rel="noopener noreferrer">
+                <GitHubMark />
+                View project on GitHub
+              </a>
+            </p>
+          )
+        }
+      </header>
+
+      <div class="page-banner article-banner" aria-hidden="true">
+        <Illustration variant={banner} />
+      </div>
+
+      <div class="article-body">
+        <slot />
+      </div>
+
+      <a class="back-link" href="/#writing">← All writing</a>
+    </div>
+  </article>
+</BaseLayout>

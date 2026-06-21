@@ -1,0 +1,17 @@
+---
+import { site } from '../config';
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="/">
+      {site.name}
+      <span class="role">{site.role}</span>
+    </a>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/#writing">Writing</a>
+      <a href={site.cvPath} download>CV</a>
+    </nav>
+  </div>
+</header>
