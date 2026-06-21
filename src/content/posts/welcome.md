@@ -5,6 +5,7 @@ description: >-
   writing about generative AI engineering you can expect to find here.
 pubDate: 2026-06-20
 tags: ['meta']
+draft: true
 ---
 
 Welcome. I'm a machine learning engineer working in generative AI, and this is

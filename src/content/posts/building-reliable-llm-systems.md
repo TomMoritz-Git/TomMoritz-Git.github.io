@@ -6,6 +6,7 @@ description: >-
 pubDate: 2026-06-15
 tags: ['LLMs', 'production', 'evals']
 github: https://github.com/TomMoritz-Git
+draft: true
 ---
 
 A demo that works once is easy. A generative AI system that works on the
