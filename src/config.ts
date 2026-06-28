@@ -17,8 +17,8 @@ export const site = {
   intro:
     "I'm a Machine Learning Engineer with 5+ years of experience taking AI " +
     'from research to production. I work across generative AI, NLP, and ' +
-    'information retrieval, turning ideas into reliable systems that hold up ' +
-    'at scale.',
+    'information retrieval. Glad you stopped by, and I hope you find ' +
+    'something interesting here.',
 
   // Path to your CV, served from the /public folder. Drop your file at
   // public/cv.pdf (or change this path).
