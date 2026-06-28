@@ -435,6 +435,25 @@ hr {
   text-align: center;
   margin-top: 0.5rem;
 }
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.6rem 0;
+  font-size: 0.95rem;
+}
+.article-body th,
+.article-body td {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+.article-body thead th {
+  border-bottom: 2px solid var(--line);
+  font-weight: 600;
+}
+.article-body tbody tr:last-child td {
+  border-bottom: none;
+}
 
 .back-link {
   display: inline-block;
