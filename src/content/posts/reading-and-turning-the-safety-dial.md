@@ -23,6 +23,8 @@ The five models are Qwen3-1.7B, Gemma-3-1B, SmolLM3-3B, Granite-3.1-2B, and
 Qwen2.5-1.5B. They are small enough to run on one consumer GPU and come from four
 different labs, so any shared structure isn't a quirk of one training recipe.
 
+### The intent ladder
+
 A crude split of harmful versus benign prompts won't answer the question, because
 a classifier can score well just by noticing the topic. So I wrote each domain as
 a ladder: one scenario stated at five levels of intent, from a legitimate version
@@ -41,11 +43,15 @@ One privacy scenario, about locating a phone, runs like this:
 Same topic the whole way down. A model that refuses by spotting the word "track"
 or "phone" gets no credit; only one that reads the intent separates L0 from L4.
 
+### Building the direction
+
 The direction itself is simple to build. Take a few harmful and a few benign
 prompts, average their activations at the last token, and subtract. That
 difference is the candidate refusal direction. To read, I project a new prompt
 onto it before generating. To write, I add it back during generation and watch
 what changes.
+
+### Labeling refusals
 
 To know whether a response is a refusal or not, every generation is labeled by an
 LLM judge (Claude Haiku) as refuse or comply. The judge is checked against a set of
@@ -61,6 +67,8 @@ prompts (write) are pushed along the same axis by the dial. Both rise across it 
 saturate together, though the write route lags, refusing somewhat less at any given
 position.*
 
+### Reading
+
 Start with reading. Each prompt has a position on the direction: project its
 activations and you get a number, available before the model generates anything.
 That number predicts refusal. It is measured within each scenario, so the score
@@ -69,6 +77,8 @@ of 0.92 to 0.98. That range is pooled over all four domains, so its low end is d
 down by the one that breaks (next section). On the three where the safeguard holds,
 the read is near-perfect. In the figure, the natural prompts (blue) climb from comply
 to refuse right as they cross the threshold.
+
+### Writing
 
 Now writing. I took twenty plainly benign prompts (how rainbows form, how to brew
 tea) that the models never refuse, and pushed them along the same direction by
