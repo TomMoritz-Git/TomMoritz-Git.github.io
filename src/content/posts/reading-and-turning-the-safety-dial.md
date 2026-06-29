@@ -1,9 +1,9 @@
 ---
 title: 'Reading and turning the safety dial'
 description: >-
-  A single direction in a small model's activations predicts a refusal before
-  generation and, added back, causes one. It works across five models for three
-  safeguards and breaks for the fourth.
+  Can you tell a model is about to refuse before it speaks, and turn that
+  decision on yourself? Across five small models you mostly can, until one
+  safeguard refuses to play along.
 pubDate: 2026-06-28
 tags: ['interpretability', 'AI safety', 'LLMs', 'evals']
 github: https://github.com/TomMoritz-Git/safety-dial
