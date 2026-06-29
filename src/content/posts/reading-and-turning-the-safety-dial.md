@@ -85,6 +85,16 @@ axis and saturate together, which is the point. For these safeguards, refusal
 behaves like a threshold on a single linear coordinate. You can reach that threshold
 either by what the prompt is or by pushing on the coordinate directly.
 
+This part rests on earlier work. That refusal can be read off activations as a single linear
+direction, and added back to cause one, was shown by
+[Arditi et al. (2024)](https://arxiv.org/abs/2406.11717) and fits the
+representation-engineering work of [Zou et al. (2023)](https://arxiv.org/abs/2310.01405).
+Reproducing it here on a fresh set of small models from four labs is the starting point.
+What's new is what the direction shows once you break it apart by safeguard: holding the
+subject fixed across an intent ladder, reading the direction one domain at a time, and
+finding a domain where it falls apart. That per-safeguard view, and the failure it turns up,
+is what the rest of this post is about.
+
 ## Where it breaks
 
 ![Left panel: refusal rate against intent level, with privacy rising steadily to full refusal while misinformation stays low and peaks in the middle before falling. Right panel: read quality by domain, tightly near the top for privacy, cyber-access, and fraud, and scattered much lower for misinformation.](/figures/safety-dial/fig5_misinfo_breakdown.png)
@@ -104,6 +114,14 @@ general refusal mechanism. These models have a coherent safeguard for privacy an
 for most of them, not for misinformation, so in that domain the direction has little
 stable to read or to steer. The single direction is real, but it depends on the
 safeguard being there.
+
+It's worth being clear about how far this goes. What the data shows is that the safeguard is
+weak or absent for misinformation. Whether that's a separate per-domain safeguard or just
+refusal that was trained more weakly and noisily isn't something behavior alone can settle,
+since both predict the same scattered read. Telling them apart would take a look inside
+training, or a sharper causal test than single-direction steering. The useful conclusion
+holds either way: where a model has no firm safeguard to begin with, there's little stable
+for the direction to read or steer, which is exactly the boundary on the tool.
 
 ## What it's good for
 
